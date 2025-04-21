@@ -4,6 +4,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Salão de Beleza</title>
+    <link rel="website icon" type="png"
+    href="img/logo.png"
+</head>
     <style>
         body {
            font-family: 'Poppins', Arial, sans-serif;
@@ -156,7 +159,7 @@ form button:hover {
 <body>
 
 <header>
-    <h1>Salão da Cleorice</h1>
+    <h1>Salão da Cleurice</h1>
     <nav>
         <a href="#servicos">Serviços</a>
         <a href="#agendamento">Agendamentos</a>
@@ -231,7 +234,7 @@ form button:hover {
                                      `*Data:* ${data}%0A` +
                                      `*Horário:* ${horario}`;
                     const telefoneDona = "5581999999999"; // Substitua pelo número da dona do salão (inclua o código do país)
-                    const url = `https://wa.me/5534988117496?text=${mensagem}`;
+                    const url = `https://wa.me/553488095621?text=${mensagem}`;
                     window.open(url, '_blank');
                 } else {
                     alert('Por favor, preencha todos os campos antes de agendar.');
@@ -241,7 +244,7 @@ form button:hover {
 </div>
 
 <footer>
-    <p>&copy; 2025 Salão de Beleza. Todos os direitos reservados.</p>
+    <p>&copy; 2025 Salão da Cleurice. Todos os direitos reservados.</p>
 </footer>
 
 </body>
