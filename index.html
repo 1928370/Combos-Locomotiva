@@ -3,6 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <header>
+        <img src="img/logo.png" alt="Logo do Salão" style="max-width: 100px; border-radius: 50%;">
+        </nav>
+    </header>
     <title>Salão de Beleza</title>
     <link rel="website icon" type="png"
     href="img/logo.png"
