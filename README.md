@@ -3,253 +3,663 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <header>
-        <img src="img/logo.png" alt="Logo do Salão" style="max-width: 100px; border-radius: 50%;">
-        </nav>
-    </header>
-    <title>Salão de Beleza</title>
-    <link rel="website icon" type="png"
-    href="img/logo.png"
-</head>
+    <title>Salão da Cleurice - Agendamento Online</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
-        body {
-           font-family: 'Poppins', Arial, sans-serif;
-           margin: 0;
-           padding: 0;
-           background-color: #f4f4f4;
-           color: #333;
-}
-        a {
-            text-decoration: none;
-            color:#333
+        .hero-bg {
+            background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('https://images.unsplash.com/photo-1522335789203-aabd1fc54bc9?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1887&q=80');
+            background-size: cover;
+            background-position: center;
         }
-        a {
-            text-decoration: none;
-            color:#333;
+        
+        .service-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
         }
-        header {
-            background: linear-gradient(90deg, #ff007f, #ff99cc); /* Degradê de rosa escuro para rosa claro */
-            color: #fff;
-            padding: 10px 0;
-            text-align: center;
-}
-        header h1 {
-            margin: 0;
-            font-size: 2em;
+        
+        .calendar-day:hover:not(.disabled) {
+            background-color: #f3e8ff;
+            cursor: pointer;
         }
-        nav {
-            margin: 20px 0;
+        
+        .calendar-day.selected {
+            background-color: #8b5cf6;
+            color: white;
         }
-        nav a {
-            margin: 0 15px;
-            color: #fff;
-            text-decoration: none;
+        
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
         }
-        nav a:hover {
-            text-decoration: underline;
+        
+        .animate-fade-in {
+            animation: fadeIn 0.5s ease-out forwards;
         }
-        .container {
-            max-width: 800px;
-            margin: 0 auto;
-            padding: 20px;
-            background: #fff;
-            border-radius: 8px;
-            box-shadow: 0 0 10px rgba(0,0,0,0.1);
-        }
-        h2 {
-            text-align: center;
-            color:#333
-        }
-        h2 {
-            text-align: center;
-            color:#333
-        }
-        .service {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            padding: 15px;
-            border: 1px solid #ddd;
-            border-radius: 10px;
-            margin-bottom: 15px;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Adiciona uma sombra */
-            background-color: #fff; /* Fundo branco para destaque */
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-        .service img {
-            max-width: 120px; /* Aumenta o tamanho da imagem */
-            border-radius: 10px; /* Bordas arredondadas */
-            margin-right: 15px; /* Espaço entre a imagem e o texto */
-}
-        .service h3 {
-            font-size: 1.5em; /* Aumenta o tamanho do título */
-            color: #ff007f; /* Rosa escuro para destaque */
-            margin: 0;
-}
-        .service p {
-            margin: 5px 0;
-        }
-        .service p {
-            font-size: 1.2em; /* Aumenta o tamanho do preço */
-            color: #333; /* Cor mais escura para contraste */
-            font-weight: bold; /* Deixa o texto em negrito */
-            margin: 5px 0 0;
-}
-        .service:hover {
-            transform: scale(1.02); /* Aumenta levemente ao passar o mouse */
-            box-shadow: 0 6px 10px rgba(0, 0, 0, 0.15); /* Intensifica a sombra */
-}
-        footer {
-            text-align: center;
-            padding: 20px 0;
-            background: #333;
-            color: #fff;
-            position: relative;
-            bottom: 0;
-            width: 100%;
-        }
-        footer p {
-            margin: 0;
-        }
-        form {
-            display: flex;
-            flex-direction: column;
-            gap: 15px; /* Espaçamento entre os elementos */
-            background-color: #fff; /* Fundo branco */
-            padding: 20px;
-            border-radius: 10px; /* Bordas arredondadas */
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Sombra suave */
-            max-width: 400px;
-            margin: 0 auto; /* Centraliza o formulário */
-}
-form label {
-    font-size: 1em;
-    font-weight: bold;
-    color: #333;
-}
-form input, form select, form button {
-    padding: 10px;
-    font-size: 1em;
-    border: 1px solid #ddd;
-    border-radius: 5px; /* Bordas arredondadas */
-    outline: none;
-    transition: all 0.3s ease;
-}
-
-form input:focus, form select:focus {
-    border-color: #ff007f; /* Destaque ao focar */
-    box-shadow: 0 0 5px rgba(255, 0, 127, 0.5);
-}
-
-form button {
-    background-color: #ff007f; /* Rosa escuro */
-    color: #fff;
-    border: none;
-    cursor: pointer;
-    font-weight: bold;
-    transition: background-color 0.3s ease;
-}
-
-form button:hover {
-    background-color: #e60073; /* Tom mais escuro ao passar o mouse */
-}
-        form button:active {
-            transform: scale(0.98);
-        }
-
-
     </style>
 </head>
-<body>
-
-<header>
-    <h1>Salão da Cleurice</h1>
-    <nav>
-        <a href="#servicos">Serviços</a>
-        <a href="#agendamento">Agendamentos</a>
-    </nav>
-</header>
-
-<div class="container">
-    <section id="servicos">
-        <h2>Serviços</h2>
-        <div class="service" onclick="selecionarServico('Corte de Cabelo')">
-            <img src="img/corte de cabelo.jpg" alt="Corte de cabelo">
-            <div>
-                <h3>Corte de Cabelo</h3>
-                <p>R$ 50,00</p>
+<body class="font-sans bg-purple-50">
+    <!-- Header -->
+    <header class="bg-white shadow-md">
+        <div class="container mx-auto px-4 py-4 flex justify-between items-center">
+            <div class="flex items-center">
+                <i class="fas fa-spa text-purple-600 text-3xl mr-3"></i>
+                <h1 class="text-2xl font-bold text-purple-800">Salão da Cleurice</h1>
             </div>
+            <nav class="hidden md:flex space-x-8">
+                <a href="#services" class="text-purple-700 hover:text-purple-500 font-medium">Serviços</a>
+                <a href="#about" class="text-purple-700 hover:text-purple-500 font-medium">Sobre</a>
+                <a href="#testimonials" class="text-purple-700 hover:text-purple-500 font-medium">Depoimentos</a>
+                <a href="#contact" class="text-purple-700 hover:text-purple-500 font-medium">Contato</a>
+            </nav>
+            <button class="md:hidden text-purple-700">
+                <i class="fas fa-bars text-2xl"></i>
+            </button>
         </div>
-        <div class="service" onclick="selecionarServico('Tintura de Cabelo')">
-            <img src="img/tinta de cabelo.jpeg" alt="Tintura de cabelo">
-            <div>
-                <h3>Tintura de Cabelo</h3>
-                <p>R$ 120,00</p>
-            </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero-bg text-white py-20 md:py-32">
+        <div class="container mx-auto px-4 text-center">
+            <h2 class="text-4xl md:text-5xl font-bold mb-6 animate-fade-in">Transforme sua beleza com nossos serviços exclusivos</h2>
+            <p class="text-xl mb-8 max-w-2xl mx-auto animate-fade-in" style="animation-delay: 0.2s;">Agende seu horário online e descubra a excelência do Salão da Cleurice</p>
+            <a href="#schedule" class="bg-purple-600 hover:bg-purple-700 text-white font-bold py-3 px-8 rounded-full text-lg transition duration-300 animate-fade-in" style="animation-delay: 0.4s;">Agendar Agora</a>
         </div>
-        <div class="service" onclick="selecionarServico('Manicure')">
-            <img src="img/manicure.jpg" alt="Manicure">
-            <div>
-                <h3>Manicure</h3>
-                <p>R$ 30,00</p>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services" class="py-16 bg-white">
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl font-bold text-center text-purple-800 mb-12">Nossos Serviços</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Service 1 -->
+                <div class="service-card bg-white rounded-lg shadow-md overflow-hidden transition duration-300">
+                    <div class="h-48 bg-purple-100 flex items-center justify-center">
+                        <i class="fas fa-cut text-purple-600 text-6xl"></i>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold text-purple-800 mb-3">Cortes de Cabelo</h3>
+                        <p class="text-gray-600 mb-4">Cortes modernos e personalizados para valorizar seu rosto e estilo.</p>
+                        <div class="flex justify-between items-center">
+                            <span class="font-bold text-purple-600">R$ 80,00</span>
+                            <button class="text-purple-600 hover:text-purple-800 font-medium">Agendar</button>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Service 2 -->
+                <div class="service-card bg-white rounded-lg shadow-md overflow-hidden transition duration-300">
+                    <div class="h-48 bg-purple-100 flex items-center justify-center">
+                        <i class="fas fa-paint-brush text-purple-600 text-6xl"></i>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold text-purple-800 mb-3">Coloração</h3>
+                        <p class="text-gray-600 mb-4">Técnicas avançadas de coloração para resultados vibrantes e duradouros.</p>
+                        <div class="flex justify-between items-center">
+                            <span class="font-bold text-purple-600">R$ 150,00</span>
+                            <button class="text-purple-600 hover:text-purple-800 font-medium">Agendar</button>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Service 3 -->
+                <div class="service-card bg-white rounded-lg shadow-md overflow-hidden transition duration-300">
+                    <div class="h-48 bg-purple-100 flex items-center justify-center">
+                        <i class="fas fa-spa text-purple-600 text-6xl"></i>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold text-purple-800 mb-3">Tratamentos Capilares</h3>
+                        <p class="text-gray-600 mb-4">Recupere a saúde dos seus cabelos com nossos tratamentos especializados.</p>
+                        <div class="flex justify-between items-center">
+                            <span class="font-bold text-purple-600">R$ 120,00</span>
+                            <button class="text-purple-600 hover:text-purple-800 font-medium">Agendar</button>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Service 4 -->
+                <div class="service-card bg-white rounded-lg shadow-md overflow-hidden transition duration-300">
+                    <div class="h-48 bg-purple-100 flex items-center justify-center">
+                        <i class="fas fa-hand-sparkles text-purple-600 text-6xl"></i>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold text-purple-800 mb-3">Manicure e Pedicure</h3>
+                        <p class="text-gray-600 mb-4">Cuidados completos para suas mãos e pés com os melhores produtos.</p>
+                        <div class="flex justify-between items-center">
+                            <span class="font-bold text-purple-600">R$ 60,00</span>
+                            <button class="text-purple-600 hover:text-purple-800 font-medium">Agendar</button>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Service 5 -->
+                <div class="service-card bg-white rounded-lg shadow-md overflow-hidden transition duration-300">
+                    <div class="h-48 bg-purple-100 flex items-center justify-center">
+                        <i class="fas fa-ellipsis-h text-purple-600 text-6xl"></i>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold text-purple-800 mb-3">Alongamento de Cílios</h3>
+                        <p class="text-gray-600 mb-4">Cílios mais longos e volumosos com técnicas profissionais e seguras.</p>
+                        <div class="flex justify-between items-center">
+                            <span class="font-bold text-purple-600">R$ 180,00</span>
+                            <button class="text-purple-600 hover:text-purple-800 font-medium">Agendar</button>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Service 6 -->
+                <div class="service-card bg-white rounded-lg shadow-md overflow-hidden transition duration-300">
+                    <div class="h-48 bg-purple-100 flex items-center justify-center">
+                        <i class="fas fa-magic text-purple-600 text-6xl"></i>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold text-purple-800 mb-3">Maquiagem Profissional</h3>
+                        <p class="text-gray-600 mb-4">Destaque sua beleza natural com maquiagem profissional para qualquer ocasião.</p>
+                        <div class="flex justify-between items-center">
+                            <span class="font-bold text-purple-600">R$ 100,00</span>
+                            <button class="text-purple-600 hover:text-purple-800 font-medium">Agendar</button>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
 
+    <!-- About Section -->
+    <section id="about" class="py-16 bg-purple-100">
+        <div class="container mx-auto px-4">
+            <div class="flex flex-col md:flex-row items-center">
+                <div class="md:w-1/2 mb-8 md:mb-0 md:pr-8">
+                    <img src="https://images.unsplash.com/photo-1595476108010-b4d1f102b1b1?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=688&q=80" alt="Cleurice" class="rounded-lg shadow-lg w-full">
+                </div>
+                <div class="md:w-1/2">
+                    <h2 class="text-3xl font-bold text-purple-800 mb-6">Sobre o Salão da Cleurice</h2>
+                    <p class="text-gray-700 mb-4">Com mais de 15 anos de experiência no mercado da beleza, Cleurice transformou sua paixão por cuidados pessoais em um espaço acolhedor e sofisticado.</p>
+                    <p class="text-gray-700 mb-4">Nosso salão oferece um ambiente exclusivo onde cada cliente recebe atenção personalizada e serviços de alta qualidade, utilizando os melhores produtos do mercado.</p>
+                    <p class="text-gray-700 mb-6">Nossa missão é realçar sua beleza natural, proporcionando momentos de relaxamento e autoestima renovada.</p>
+                    <div class="flex space-x-4">
+                        <div class="bg-white p-4 rounded-lg shadow-sm text-center flex-1">
+                            <div class="text-purple-600 text-3xl mb-2">15+</div>
+                            <div class="text-gray-600 font-medium">Anos de Experiência</div>
+                        </div>
+                        <div class="bg-white p-4 rounded-lg shadow-sm text-center flex-1">
+                            <div class="text-purple-600 text-3xl mb-2">5000+</div>
+                            <div class="text-gray-600 font-medium">Clientes Satisfeitos</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 
+    <!-- Testimonials Section -->
+    <section id="testimonials" class="py-16 bg-white">
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl font-bold text-center text-purple-800 mb-12">O que nossos clientes dizem</h2>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <!-- Testimonial 1 -->
+                <div class="bg-purple-50 p-6 rounded-lg">
+                    <div class="flex items-center mb-4">
+                        <div class="w-12 h-12 rounded-full bg-purple-200 flex items-center justify-center mr-4">
+                            <i class="fas fa-user text-purple-600"></i>
+                        </div>
+                        <div>
+                            <h4 class="font-bold text-purple-800">Ana Carolina</h4>
+                            <div class="flex text-yellow-400">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <p class="text-gray-700">"O Salão da Cleurice é simplesmente incrível! A Cleurice tem um dom para entender exatamente o que eu quero e sempre supera minhas expectativas. Meu cabelo nunca esteve tão saudável!"</p>
+                </div>
+                
+                <!-- Testimonial 2 -->
+                <div class="bg-purple-50 p-6 rounded-lg">
+                    <div class="flex items-center mb-4">
+                        <div class="w-12 h-12 rounded-full bg-purple-200 flex items-center justify-center mr-4">
+                            <i class="fas fa-user text-purple-600"></i>
+                        </div>
+                        <div>
+                            <h4 class="font-bold text-purple-800">Roberta Silva</h4>
+                            <div class="flex text-yellow-400">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <p class="text-gray-700">"Adoro o atendimento personalizado e o cuidado com cada detalhe. A coloração que a Cleurice fez no meu cabelo foi perfeita e durou muito mais do que em outros salões que já frequentei."</p>
+                </div>
+                
+                <!-- Testimonial 3 -->
+                <div class="bg-purple-50 p-6 rounded-lg">
+                    <div class="flex items-center mb-4">
+                        <div class="w-12 h-12 rounded-full bg-purple-200 flex items-center justify-center mr-4">
+                            <i class="fas fa-user text-purple-600"></i>
+                        </div>
+                        <div>
+                            <h4 class="font-bold text-purple-800">Mariana Oliveira</h4>
+                            <div class="flex text-yellow-400">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star-half-alt"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <p class="text-gray-700">"O ambiente é tão acolhedor que me sinto em casa. Além disso, o agendamento online é super prático e nunca preciso esperar. Recomendo demais o Salão da Cleurice!"</p>
+                </div>
+            </div>
+        </div>
+    </section>
 
+    <!-- Schedule Section -->
+    <section id="schedule" class="py-16 bg-purple-100">
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl font-bold text-center text-purple-800 mb-12">Agende seu horário</h2>
+            <div class="bg-white rounded-lg shadow-lg overflow-hidden max-w-4xl mx-auto">
+                <div class="flex flex-col md:flex-row">
+                    <!-- Left Side - Form -->
+                    <div class="p-8 md:w-1/2">
+                        <h3 class="text-xl font-bold text-purple-800 mb-6">Preencha seus dados</h3>
+                        <form id="appointmentForm" class="space-y-4">
+                            <div>
+                                <label for="name" class="block text-gray-700 font-medium mb-2">Nome Completo</label>
+                                <input type="text" id="name" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-purple-500" required>
+                            </div>
+                            <div>
+                                <label for="email" class="block text-gray-700 font-medium mb-2">E-mail</label>
+                                <input type="email" id="email" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-purple-500" required>
+                            </div>
+                            <div>
+                                <label for="phone" class="block text-gray-700 font-medium mb-2">Telefone</label>
+                                <input type="tel" id="phone" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-purple-500" required>
+                            </div>
+                            <div>
+                                <label for="service" class="block text-gray-700 font-medium mb-2">Serviço</label>
+                                <select id="service" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-purple-500" required>
+                                    <option value="">Selecione um serviço</option>
+                                    <option value="Corte de Cabelo">Corte de Cabelo - R$ 80,00</option>
+                                    <option value="Coloração">Coloração - R$ 150,00</option>
+                                    <option value="Tratamento Capilar">Tratamento Capilar - R$ 120,00</option>
+                                    <option value="Manicure e Pedicure">Manicure e Pedicure - R$ 60,00</option>
+                                    <option value="Alongamento de Cílios">Alongamento de Cílios - R$ 180,00</option>
+                                    <option value="Maquiagem Profissional">Maquiagem Profissional - R$ 100,00</option>
+                                </select>
+                            </div>
+                            <input type="hidden" id="selectedDate">
+                            <input type="hidden" id="selectedTime">
+                        </form>
+                    </div>
+                    
+                    <!-- Right Side - Calendar -->
+                    <div class="p-8 bg-purple-50 md:w-1/2">
+                        <h3 class="text-xl font-bold text-purple-800 mb-6">Escolha a data e horário</h3>
+                        
+                        <!-- Month Navigation -->
+                        <div class="flex justify-between items-center mb-4">
+                            <button id="prevMonth" class="text-purple-600 hover:text-purple-800">
+                                <i class="fas fa-chevron-left"></i>
+                            </button>
+                            <h4 id="currentMonth" class="font-bold text-purple-800">Junho 2023</h4>
+                            <button id="nextMonth" class="text-purple-600 hover:text-purple-800">
+                                <i class="fas fa-chevron-right"></i>
+                            </button>
+                        </div>
+                        
+                        <!-- Calendar Grid -->
+                        <div class="grid grid-cols-7 gap-2 mb-6">
+                            <div class="text-center font-medium text-purple-600">Dom</div>
+                            <div class="text-center font-medium text-purple-600">Seg</div>
+                            <div class="text-center font-medium text-purple-600">Ter</div>
+                            <div class="text-center font-medium text-purple-600">Qua</div>
+                            <div class="text-center font-medium text-purple-600">Qui</div>
+                            <div class="text-center font-medium text-purple-600">Sex</div>
+                            <div class="text-center font-medium text-purple-600">Sáb</div>
+                        </div>
+                        
+                        <div id="calendarDays" class="grid grid-cols-7 gap-2 mb-8">
+                            <!-- Calendar days will be inserted here by JavaScript -->
+                        </div>
+                        
+                        <!-- Time Selection -->
+                        <div id="timeSelection" class="hidden">
+                            <h4 class="font-bold text-purple-800 mb-4">Horários disponíveis</h4>
+                            <div class="grid grid-cols-3 gap-2">
+                                <button class="time-slot bg-white border border-purple-200 rounded py-2 hover:bg-purple-100">09:00</button>
+                                <button class="time-slot bg-white border border-purple-200 rounded py-2 hover:bg-purple-100">10:00</button>
+                                <button class="time-slot bg-white border border-purple-200 rounded py-2 hover:bg-purple-100">11:00</button>
+                                <button class="time-slot bg-white border border-purple-200 rounded py-2 hover:bg-purple-100">13:00</button>
+                                <button class="time-slot bg-white border border-purple-200 rounded py-2 hover:bg-purple-100">14:00</button>
+                                <button class="time-slot bg-white border border-purple-200 rounded py-2 hover:bg-purple-100">15:00</button>
+                            </div>
+                        </div>
+                        
+                        <button id="submitAppointment" class="w-full bg-purple-600 hover:bg-purple-700 text-white font-bold py-3 px-4 rounded-lg mt-6 transition duration-300 hidden">Confirmar Agendamento</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 
+    <!-- Contact Section -->
+    <section id="contact" class="py-16 bg-white">
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl font-bold text-center text-purple-800 mb-12">Entre em Contato</h2>
+            <div class="flex flex-col md:flex-row">
+                <div class="md:w-1/2 mb-8 md:mb-0 md:pr-8">
+                    <div class="bg-purple-50 p-6 rounded-lg shadow-sm">
+                        <h3 class="text-xl font-bold text-purple-800 mb-4">Informações de Contato</h3>
+                        <div class="space-y-4">
+                            <div class="flex items-start">
+                                <i class="fas fa-map-marker-alt text-purple-600 mt-1 mr-3"></i>
+                                <div>
+                                    <h4 class="font-medium text-gray-800">Endereço</h4>
+                                    <p class="text-gray-600">Rua João Batista de Almeida, 121 - Alvorada, Cidade - Araguari-MG</p>
+                                </div>
+                            </div>
+                            <div class="flex items-start">
+                                <i class="fas fa-phone-alt text-purple-600 mt-1 mr-3"></i>
+                                <div>
+                                    <h4 class="font-medium text-gray-800">Telefone</h4>
+                                    <p class="text-gray-600">+55 34 9 8809-5621</p>
+                                </div>
+                            </div>
+                            <div class="flex items-start">
+                                <i class="fas fa-envelope text-purple-600 mt-1 mr-3"></i>
+                                <div>
+                                    <h4 class="font-medium text-gray-800">E-mail</h4>
+                                    <p class="text-gray-600">contato@salaodacleurice.com.br</p>
+                                </div>
+                            </div>
+                            <div class="flex items-start">
+                                <i class="fas fa-clock text-purple-600 mt-1 mr-3"></i>
+                                <div>
+                                    <h4 class="font-medium text-gray-800">Horário de Funcionamento</h4>
+                                    <p class="text-gray-600">Segunda a Sexta: 9h às 19h<br>Sábado: 9h às 15h</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="mt-6">
+                            <h4 class="font-medium text-gray-800 mb-2">Siga-nos</h4>
+                            <div class="flex space-x-4">
+                                <a href="#" class="https://www.facebook.com/share/14znt7FciGX/"><i class="fab fa-facebook-f"></i></a>
+                                <a href="#" class="https://www.instagram.com/santoscleurice?igsh=MTM5dXE5ZHhucW1vNw=="><i class="fab fa-instagram"></i></a>
+                              
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="md:w-1/2">
+                    <div class="bg-purple-50 p-6 rounded-lg shadow-sm">
+                        <h3 class="text-xl font-bold text-purple-800 mb-4">Envie uma mensagem</h3>
+                        <form class="space-y-4">
+                            <div>
+                                <label for="contactName" class="block text-gray-700 font-medium mb-2">Nome</label>
+                                <input type="text" id="contactName" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-purple-500" required>
+                            </div>
+                            <div>
+                                <label for="contactEmail" class="block text-gray-700 font-medium mb-2">E-mail</label>
+                                <input type="email" id="contactEmail" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-purple-500" required>
+                            </div>
+                            <div>
+                                <label for="contactSubject" class="block text-gray-700 font-medium mb-2">Assunto</label>
+                                <input type="text" id="contactSubject" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-purple-500" required>
+                            </div>
+                            <div>
+                                <label for="contactMessage" class="block text-gray-700 font-medium mb-2">Mensagem</label>
+                                <textarea id="contactMessage" rows="4" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-purple-500" required></textarea>
+                            </div>
+                            <button type="submit" class="bg-purple-600 hover:bg-purple-700 text-white font-bold py-2 px-6 rounded-lg transition duration-300">Enviar Mensagem</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 
-    <section id="agendamento">
-        <section id="agendamento">
-            <h2>Agendamentos</h2>
-            <form id="form-agendamento">
-                <label for="nome">Nome:</label>
-                <input type="text" id="nome" name="nome" required><br><br>
+    <!-- Footer -->
+    <footer class="bg-purple-800 text-white py-8">
+        <div class="container mx-auto px-4">
+            <div class="flex flex-col md:flex-row justify-between items-center">
+                <div class="mb-4 md:mb-0">
+                    <div class="flex items-center">
+                        <i class="fas fa-spa text-white text-2xl mr-3"></i>
+                        <h3 class="text-xl font-bold">Salão da Cleurice</h3>
+                    </div>
+                    <p class="text-purple-200 mt-2">Transformando sua beleza</p>
+                </div>
+                <div class="text-center md:text-right">
+                    <p class="text-purple-200">&copy; 2025 Salão da Cleurice. Todos os direitos reservados.</p>
+                    <div class="mt-2">
+                        <a href="#" class="text-purple-200 hover:text-white mr-4">Política de Privacidade</a>
+                        <a href="#" class="text-purple-200 hover:text-white">Termos de Serviço</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Success Modal -->
+    <div id="successModal" class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 hidden">
+        <div class="bg-white rounded-lg p-8 max-w-md mx-4">
+            <div class="text-center">
+                <div class="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                    <i class="fas fa-check text-green-500 text-2xl"></i>
+                </div>
+                <h3 class="text-xl font-bold text-gray-800 mb-2">Agendamento Confirmado!</h3>
+                <p class="text-gray-600 mb-6" id="confirmationDetails">Seu horário foi agendado com sucesso para <span id="confirmationDate"></span> às <span id="confirmationTime"></span>.</p>
+                <button id="closeModal" class="bg-purple-600 hover:bg-purple-700 text-white font-bold py-2 px-6 rounded-lg transition duration-300">Fechar</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
+    <script>
+        (function(){
+            emailjs.init('seu_user_id'); // Substitua pelo seu userID do EmailJS
+        })();
+    </script>
+    <script>
+        // Calendar functionality
+        document.addEventListener('DOMContentLoaded', function() {
+            let currentDate = new Date();
+            let selectedDate = null;
+            let selectedTime = null;
+            
+            // Render calendar
+            function renderCalendar() {
+                const monthNames = ["Janeiro", "Fevereiro", "Março", "Abril", "Maio", "Junho", "Julho", "Agosto", "Setembro", "Outubro", "Novembro", "Dezembro"];
+                document.getElementById('currentMonth').textContent = `${monthNames[currentDate.getMonth()]} ${currentDate.getFullYear()}`;
                 
-                <label for="servico">Serviço:</label>
-                <select id="servico" name="servico" required>
-                    <option value="" disabled selected>Selecione um serviço</option>
-                    <option value="Corte de Cabelo">Corte de Cabelo</option>
-                    <option value="Tintura de Cabelo">Tintura de Cabelo</option>
-                    <option value="Manicure">Manicure</option>
-                </select><br><br>
+                const firstDay = new Date(currentDate.getFullYear(), currentDate.getMonth(), 1).getDay();
+                const daysInMonth = new Date(currentDate.getFullYear(), currentDate.getMonth() + 1, 0).getDate();
                 
-                <label for="data">Data:</label>
-                <input type="date" id="data" name="data" required><br><br>
+                let calendarHTML = '';
                 
-                <label for="horario">Horário:</label>
-                <input type="time" id="horario" name="horario" required><br><br>
-                
-                <button type="button" onclick="enviarWhatsApp()">Agendar</button>
-            </form>
-        </section>
-        <script>
-            function enviarWhatsApp() {
-                const nome = document.getElementById('nome').value;
-                const servico = document.getElementById('servico').value;
-                const data = document.getElementById('data').value;
-                const horario = document.getElementById('horario').value;
-        
-                if (nome && servico && data && horario) {
-                    const mensagem = `Olá, gostaria de agendar um horário no salão!%0A%0A` +
-                                     `*Nome:* ${nome}%0A` +
-                                     `*Serviço:* ${servico}%0A` +
-                                     `*Data:* ${data}%0A` +
-                                     `*Horário:* ${horario}`;
-                    const telefoneDona = "5581999999999"; // Substitua pelo número da dona do salão (inclua o código do país)
-                    const url = `https://wa.me/553488095621?text=${mensagem}`;
-                    window.open(url, '_blank');
-                } else {
-                    alert('Por favor, preencha todos os campos antes de agendar.');
+                // Empty cells for days before the first day of the month
+                for (let i = 0; i < firstDay; i++) {
+                    calendarHTML += `<div class="calendar-day h-10"></div>`;
                 }
+                
+                // Days of the month
+                const today = new Date();
+                for (let i = 1; i <= daysInMonth; i++) {
+                    const dayDate = new Date(currentDate.getFullYear(), currentDate.getMonth(), i);
+                    const isPast = dayDate < today && dayDate.getDate() !== today.getDate();
+                    const isToday = dayDate.getDate() === today.getDate() && dayDate.getMonth() === today.getMonth() && dayDate.getFullYear() === today.getFullYear();
+                    const isSelected = selectedDate && dayDate.getDate() === selectedDate.getDate() && dayDate.getMonth() === selectedDate.getMonth() && dayDate.getFullYear() === selectedDate.getFullYear();
+                    
+                    let dayClass = 'calendar-day h-10 flex items-center justify-center rounded-full';
+                    
+                    if (isPast) {
+                        dayClass += ' disabled text-gray-400';
+                    } else if (isToday) {
+                        dayClass += ' bg-purple-200 font-bold';
+                    } else if (isSelected) {
+                        dayClass += ' selected';
+                    } else {
+                        dayClass += ' hover:bg-purple-100';
+                    }
+                    
+                    calendarHTML += `<div class="${dayClass}" data-date="${formatDate(dayDate)}">${i}</div>`;
+                }
+                
+                document.getElementById('calendarDays').innerHTML = calendarHTML;
+                
+                // Add event listeners to calendar days
+                document.querySelectorAll('.calendar-day:not(.disabled)').forEach(day => {
+                    day.addEventListener('click', function() {
+                        const dateStr = this.getAttribute('data-date');
+                        selectedDate = new Date(dateStr);
+                        document.getElementById('selectedDate').value = formatDate(selectedDate);
+                        
+                        // Update UI
+                        document.querySelectorAll('.calendar-day').forEach(d => d.classList.remove('selected'));
+                        this.classList.add('selected');
+                        
+                        // Show time selection
+                        document.getElementById('timeSelection').classList.remove('hidden');
+                        document.getElementById('submitAppointment').classList.add('hidden');
+                        selectedTime = null;
+                    });
+                });
             }
-        </script>
-</div>
-
-<footer>
-    <p>&copy; 2025 Salão da Cleurice. Todos os direitos reservados.</p>
-</footer>
-
+            
+            // Format date as YYYY-MM-DD
+            function formatDate(date) {
+                const d = new Date(date);
+                let month = '' + (d.getMonth() + 1);
+                let day = '' + d.getDate();
+                const year = d.getFullYear();
+                
+                if (month.length < 2) month = '0' + month;
+                if (day.length < 2) day = '0' + day;
+                
+                return [year, month, day].join('-');
+            }
+            
+            // Month navigation
+            document.getElementById('prevMonth').addEventListener('click', function() {
+                currentDate.setMonth(currentDate.getMonth() - 1);
+                renderCalendar();
+            });
+            
+            document.getElementById('nextMonth').addEventListener('click', function() {
+                currentDate.setMonth(currentDate.getMonth() + 1);
+                renderCalendar();
+            });
+            
+            // Time slot selection
+            document.querySelectorAll('.time-slot').forEach(slot => {
+                slot.addEventListener('click', function() {
+                    selectedTime = this.textContent;
+                    document.getElementById('selectedTime').value = selectedTime;
+                    
+                    // Update UI
+                    document.querySelectorAll('.time-slot').forEach(s => s.classList.remove('bg-purple-600', 'text-white'));
+                    this.classList.add('bg-purple-600', 'text-white');
+                    
+                    // Show submit button
+                    document.getElementById('submitAppointment').classList.remove('hidden');
+                });
+            });
+            
+            // Form submission
+            document.getElementById('submitAppointment').addEventListener('click', async function() {
+                const name = document.getElementById('name').value;
+                const email = document.getElementById('email').value;
+                const phone = document.getElementById('phone').value;
+                const service = document.getElementById('service').value;
+                const data = document.getElementById('selectedDate').value;
+                const horario = document.getElementById('selectedTime').value;
+                
+                if (!name || !service || !data || !horario || !email || !phone) {
+                    alert('Por favor, preencha todos os campos do formulário.');
+                    return;
+                }
+                // Monta mensagem para WhatsApp
+                const msg = `Olá! Gostaria de agendar um horário.\n\nNome: ${name}\nE-mail: ${email}\nTelefone: ${phone}\nServiço: ${service}\nData: ${data}\nHorário: ${horario}`;
+                const numeroSalao = '5534988117496'; // Coloque o número do salão aqui (com DDI e DDD, só números)
+                const url = `https://wa.me/${numeroSalao}?text=${encodeURIComponent(msg)}`;
+                window.open(url, '_blank');
+                
+                // Show confirmation
+                document.getElementById('confirmationDate').textContent = selectedDate.toLocaleDateString('pt-BR');
+                document.getElementById('confirmationTime').textContent = selectedTime;
+                document.getElementById('successModal').classList.remove('hidden');
+                
+                // Reset form
+                document.getElementById('appointmentForm').reset();
+                document.getElementById('timeSelection').classList.add('hidden');
+                document.getElementById('submitAppointment').classList.add('hidden');
+                selectedDate = null;
+                selectedTime = null;
+                renderCalendar();
+            });
+            
+            // Close modal
+            document.getElementById('closeModal').addEventListener('click', function() {
+                document.getElementById('successModal').classList.add('hidden');
+            });
+            
+            // Initial render
+            renderCalendar();
+            
+            // Smooth scrolling for anchor links
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    
+                    const targetId = this.getAttribute('href');
+                    if (targetId === '#') return;
+                    
+                    const targetElement = document.querySelector(targetId);
+                    if (targetElement) {
+                        targetElement.scrollIntoView({
+                            behavior: 'smooth'
+                        });
+                    }
+                });
+            });
+        });
+        
+        // Envio do formulário de contato por email usando EmailJS
+        const contactForm = document.querySelector('#contact form');
+        if (contactForm) {
+            contactForm.addEventListener('submit', function(e) {
+                e.preventDefault();
+                const nome = document.getElementById('contactName').value;
+                const email = document.getElementById('contactEmail').value;
+                const assunto = document.getElementById('contactSubject').value;
+                const mensagem = document.getElementById('contactMessage').value;
+                // Substitua pelos seus dados do EmailJS
+                const serviceID = 'seu_service_id';
+                const templateID = 'seu_template_id';
+                const userID = 'seu_user_id';
+                const templateParams = {
+                    from_name: nome,
+                    from_email: email,
+                    subject: assunto,
+                    message: mensagem,
+                    to_email: 'mlxtnowmpgyxkdw@rommiui.com' // Email do proprietário
+                };
+                emailjs.send(serviceID, templateID, templateParams, userID)
+                    .then(function() {
+                        alert('Mensagem enviada com sucesso!');
+                        contactForm.reset();
+                    }, function(error) {
+                        alert('Erro ao enviar mensagem.');
+                    });
+            });
+        }
+    </script>
 </body>
 </html>
