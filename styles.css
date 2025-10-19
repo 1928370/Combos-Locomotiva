@@ -1,0 +1,97 @@
+/* styles.css - Estilos básicos e responsivos para Locomotiva da Alegria */
+.root, :root{
+  /* Paleta: laranja escuro / vermelho / preto acentuado */
+  --accent:#d35400; /* laranja escuro */
+  --accent-2:#c0392b; /* vermelho profundo */
+  --dark:#111111; /* preto acentuado */
+  --muted:#6b6b6b;
+  --bg:#faf7f4;
+  --card:#ffffff;
+}
+*{box-sizing:border-box}
+body{font-family:'Inter', 'Segoe UI', Roboto, Arial, sans-serif;margin:0;background:var(--bg);color:var(--dark);-webkit-font-smoothing:antialiased}
+.container{max-width:1100px;margin:0 auto;padding:28px}
+.site-header{background:linear-gradient(90deg,var(--accent),var(--accent-2));color:#fff;padding:20px 0}
+.header-inner{display:flex;align-items:center;gap:18px}
+.logo{width:96px;height:auto;border-radius:10px;background:rgba(255,255,255,0.06);padding:8px}
+.title-group h1{margin:0;font-size:1.8rem;letter-spacing:0.4px}
+.subtitle{margin:6px 0 0;color:rgba(255,255,255,0.95);font-size:1rem}
+.intro{background:linear-gradient(180deg,rgba(255,255,255,0.6),transparent);padding:16px;border-radius:10px;margin:22px 0}
+.intro-inner{display:flex;align-items:center;gap:18px}
+.intro-text{flex:1}
+.intro-figure{width:160px;flex:0 0 160px}
+.intro-figure img{width:100%;height:auto;border-radius:12px;box-shadow:0 12px 30px rgba(0,0,0,0.14);border:4px solid rgba(255,255,255,0.6)}
+.combos{display:grid;gap:20px}
+.combo{background:linear-gradient(180deg,#fff, #fff);padding:18px;border-radius:12px;box-shadow:0 12px 34px rgba(17,17,17,0.08);border-left:6px solid var(--accent);}
+.combo h2{margin:0 0 10px;color:var(--accent-2);font-size:1.18rem}
+.grid{display:flex;gap:20px;align-items:flex-start}
+.details{flex:1}
+.details ul{padding-left:20px;margin:8px 0 0;color:var(--muted);line-height:1.5}
+.details li{margin:10px 0}
+.price-card{width:260px;background:linear-gradient(180deg,#fff, #fff);padding:16px;border-radius:10px;border:1px solid rgba(0,0,0,0.05);text-align:center}
+.price{font-size:1.6rem;color:var(--dark);font-weight:800;margin-bottom:8px}
+.price-card h4{margin:10px 0 8px;color:var(--accent)}
+.price-card ul{list-style:none;padding:0;margin:0;color:var(--muted)}
+.price-card li{margin:6px 0}
+.contact{margin:26px 0;padding:18px;border-radius:10px;background:linear-gradient(90deg,rgba(255,255,255,0.8),transparent);text-align:center}
+.contact-note{color:var(--muted);font-weight:700}
+.site-footer{padding:18px 0;text-align:center;color:var(--muted);font-size:0.95rem}
+
+.partner{background:transparent;padding:18px 0}
+.partner-inner{display:flex;align-items:center;justify-content:space-between;gap:12px}
+.partner-text p{margin:0;color:var(--muted);font-weight:600}
+.partner-logo img{height:54px;display:block}
+
+/* Responsivo */
+@media (max-width:780px){
+  .header-inner{flex-direction:row;gap:12px}
+  .container{padding:14px}
+  .grid{flex-direction:column}
+  .price-card{width:100%}
+  .logo{width:64px}
+  .partner-inner{flex-direction:column;align-items:center;text-align:center}
+  .partner-logo img{height:48px}
+  .intro-inner{flex-direction:column}
+  .intro-figure{width:80%;max-width:320px}
+}
+
+/* Mobile Vision badge */
+.mv-badge{display:flex;align-items:center;gap:10px;justify-content:center;margin-top:12px}
+.mv-badge img{height:34px}
+.mv-badge span{font-size:0.95rem;color:var(--muted)}
+
+/* Footer destaque da Mobile Vision */
+.partner{background:linear-gradient(90deg, rgba(211,84,0,0.06), transparent);padding:20px 0}
+.partner-logo img{height:72px}
+.partner-text p{font-weight:700;color:var(--accent-2)}
+
+/* Formulários e botões */
+.hire-form{margin:0}
+.chars{display:flex;flex-direction:column;gap:8px;margin-top:8px}
+.chars label{display:flex;align-items:center;gap:8px;background:rgba(0,0,0,0.02);padding:8px;border-radius:8px}
+.btn-hire{margin-top:12px;display:inline-block;background:var(--accent-2);color:#fff;border:none;padding:12px 14px;border-radius:10px;cursor:pointer;font-weight:800;box-shadow:0 6px 20px rgba(192,57,43,0.14)}
+.btn-hire:hover{transform:translateY(-1px);transition:transform .12s ease}
+.btn-no-photo{margin-top:10px;display:inline-flex;align-items:center;gap:8px;background:#fff;color:var(--accent-2);border:1px solid rgba(192,57,43,0.12);padding:8px 10px;border-radius:999px;cursor:pointer;font-weight:700}
+.btn-no-photo.with-photo{background: #1abc9c;color:#fff;border-color:transparent;box-shadow:0 8px 20px rgba(26, 188, 156,0.14);transform:translateY(-1px)}
+.btn-no-photo.no-photo{background:#e74c3c;color:#fff;border-color:transparent;box-shadow:0 8px 20px rgba(231,76,60,0.14);transform:translateY(-1px)}
+.btn-no-photo:hover{background:rgba(192,57,43,0.03)}
+
+/* Melhorias mobile */
+@media (max-width:620px){
+  .container{padding:12px}
+  .logo{width:54px}
+  .intro-figure{width:70%;max-width:220px;margin:auto}
+  .grid{flex-direction:column}
+  .price-card{width:100%}
+  .intro-text p{font-size:0.95rem}
+  .combo h2{font-size:1.05rem}
+}
+
+/* Mensagens de erro simples */
+.error{color:#b00020;padding:8px 0}
+
+
+@media (max-width:420px){
+  .title-group h1{font-size:1.2rem}
+  .subtitle{font-size:0.85rem}
+}
