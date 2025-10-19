@@ -7,12 +7,15 @@
     <link rel="stylesheet" href="styles.css" />
   </head>
   <body>
+    <!-- Top notification / navigation bar: adiciona logo pequena à direita -->
+    
     <header class="site-header">
       <div class="container header-inner">
         <img src="img/locomotiva.png" alt="Locomotiva da Alegria" class="logo" />
         <div class="title-group">
-          <h1>Locomotiva da Alegria</h1>
+          <h1>Alugo Locomotiva da Alegria</h1>
           <p class="subtitle">Combos de animação, dança e cobertura fotográfica</p>
+          <a class="header-cta" href="#contact">Reserve já</a>
         </div>
       </div>
     </header>
@@ -246,7 +249,7 @@
             noPhotoInput.value = '0';
             noPhotoBtn.classList.remove('no-photo');
             noPhotoBtn.classList.add('with-photo');
-            noPhotoBtn.innerHTML = 'Com foto';
+            noPhotoBtn.textContent = 'Com foto';
           }
           function setToNoPhoto(){
             const newPrice = Math.max(0, original - discount);
@@ -255,7 +258,7 @@
             noPhotoInput.value = '1';
             noPhotoBtn.classList.add('no-photo');
             noPhotoBtn.classList.remove('with-photo');
-            noPhotoBtn.innerHTML = 'Sem foto • -R$' + discount;
+            noPhotoBtn.textContent = 'Sem foto • -R$' + discount;
           }
 
           // inicial
@@ -341,89 +344,7 @@
           form.submit();
         });
       });
-
-
-
-	  // Envia mensagem formatada para WhatsApp via wa.me
-// params:
-// - phone: string, número em formato internacional sem + ou espaços, ex: '5534988870260'
-// - combo: string, nome do combo selecionado
-// - characters: array de strings, nomes dos personagens selecionados
-// - noPhoto: boolean, true = sem foto (desconto), false = com foto
-// - price: number, valor atual (já com desconto se aplicável)
-function sendToWhatsApp({ phone, combo, characters, noPhoto, price }) {
-  if (!phone) {
-    console.error('Número do WhatsApp não informado.');
-    return;
-  }
-  if (!combo) {
-    alert('Combo inválido.');
-    return;
-  }
-  if (!Array.isArray(characters) || characters.length === 0) {
-    alert('Selecione pelo menos 1 personagem.');
-    return;
-  }
-
-  // Formata preço para pt-BR (ex: 1.700,00)
-  const priceFormatted = new Intl.NumberFormat('pt-BR', {
-    minimumFractionDigits: 2,
-    maximumFractionDigits: 2
-  }).format(price);
-
-  const photoNote = noPhoto
-    ? 'Sem foto (desconto aplicado)'
-    : 'Com foto (fotografia inclusa pela Mobile Vision)';
-
-  const messageLines = [
-    `Olá! Gostaria de contratar: ${combo}`,
-    `Personagens: ${characters.join(', ')}`,
-    `Opção: ${photoNote}`,
-    `Valor: R$ ${priceFormatted}`
-  ];
-
-  const message = encodeURIComponent(messageLines.join('\n'));
-
-  // Monta URL do wa.me e abre nova aba/janela
-  const waUrl = `https://wa.me/${phone}?text=${message}`;
-  window.open(waUrl, '_blank');
-}
-
-document.querySelectorAll('.hire-form').forEach(function(form){
-  form.addEventListener('submit', function(e){
-    e.preventDefault();
-
-    const phone = '5534988870260'; // número destino (sem +)
-    const combo = form.querySelector('input[name="combo"]').value || 'Combo';
-    const priceInput = form.querySelector('input[name="price"]');
-    const noPhotoInput = form.querySelector('input[name="no_photo"]');
-    const price = priceInput ? parseFloat(priceInput.value || '0') : 0;
-    const noPhoto = noPhotoInput && noPhotoInput.value === '1';
-
-    // Pega personagens (radios ou checkboxes)
-    const chars = [];
-    form.querySelectorAll('input[name="characters[]"]:checked').forEach(function(c){
-      chars.push(c.value);
-    });
-
-    if (chars.length === 0) {
-      alert('Selecione pelo menos 1 personagem.');
-      return;
-    }
-
-    // Chama a função que abre o WhatsApp
-    sendToWhatsApp({
-      phone: phone,
-      combo: combo,
-      characters: chars,
-      noPhoto: noPhoto,
-      price: price
-    });
-
-    // Se quiser também submeter o formulário para o servidor (PHP), descomente:
-    // form.submit();
-  });
-});
+    
     </script>
   </body>
 </html>
