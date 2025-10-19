@@ -250,6 +250,7 @@
             noPhotoBtn.classList.remove('no-photo');
             noPhotoBtn.classList.add('with-photo');
             noPhotoBtn.textContent = 'Com foto';
+            noPhotoBtn.setAttribute('aria-pressed', 'false');
           }
           function setToNoPhoto(){
             const newPrice = Math.max(0, original - discount);
@@ -259,6 +260,7 @@
             noPhotoBtn.classList.add('no-photo');
             noPhotoBtn.classList.remove('with-photo');
             noPhotoBtn.textContent = 'Sem foto • -R$' + discount;
+            noPhotoBtn.setAttribute('aria-pressed', 'true');
           }
 
           // inicial
@@ -266,6 +268,8 @@
 
           noPhotoBtn.addEventListener('click', function(){
             if(noPhotoInput.value === '1') setToWithPhoto(); else setToNoPhoto();
+            // Remove foco após interação para evitar comportamento estranho em alguns navegadores mobile
+            setTimeout(function(){ try{ noPhotoBtn.blur(); }catch(e){} }, 50);
           });
         }
 
