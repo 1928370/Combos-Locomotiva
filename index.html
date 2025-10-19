@@ -1,121 +1,368 @@
-/* styles.css - Estilos básicos e responsivos para Locomotiva da Alegria */
-.root, :root{
-  /* Paleta: laranja escuro / vermelho / preto acentuado */
-  --accent:#d35400; /* laranja escuro */
-  --accent-2:#c0392b; /* vermelho profundo */
-  --dark:#111111; /* preto acentuado */
-  --muted:#6b6b6b;
-  --bg:#faf7f4;
-  --card:#ffffff;
-}
-*{box-sizing:border-box}
-body{font-family:'Inter', 'Segoe UI', Roboto, Arial, sans-serif;margin:0;background:var(--bg);color:var(--dark);-webkit-font-smoothing:antialiased}
-.container{max-width:1100px;margin:0 auto;padding:28px}
-.site-header{background:linear-gradient(90deg,var(--accent),var(--accent-2));color:#fff;padding:20px 0}
-.header-inner{display:flex;align-items:center;gap:18px}
-.logo{width:96px;height:auto;border-radius:10px;background:rgba(255,255,255,0.06);padding:8px}
-.title-group h1{margin:0;font-size:2.2rem;letter-spacing:0.6px;text-shadow:0 6px 18px rgba(0,0,0,0.25);font-weight:900}
-.subtitle{margin:6px 0 0;color:rgba(255,255,255,0.95);font-size:1.05rem;opacity:0.95}
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Locomotiva da Alegria - Combos</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <!-- Top notification / navigation bar: adiciona logo pequena à direita -->
+    
+    <header class="site-header">
+      <div class="container header-inner">
+        <img src="img/locomotiva.png" alt="Locomotiva da Alegria" class="logo" />
+        <div class="title-group">
+          <h1>Alugo Locomotiva da Alegria</h1>
+          <p class="subtitle">Combos de animação, dança e cobertura fotográfica</p>
+          <a class="header-cta" href="#contact">Reserve já</a>
+        </div>
+      </div>
+    </header>
 
-/* Topbar pequena acima do header para exibir a logo reduzida (como ícone de navegação) */
-.topbar{background:rgba(0,0,0,0.02);padding:6px 0;border-bottom:1px solid rgba(0,0,0,0.03)}
-.topbar-inner{display:flex;align-items:center;justify-content:space-between}
-.topbar-right{display:flex;align-items:center}
-.top-logo{width:44px;height:auto;border-radius:8px;box-shadow:0 6px 18px rgba(0,0,0,0.12);background:#fff;padding:4px}
-/* Header CTA */
-.title-group{display:flex;flex-direction:column;gap:8px}
-.header-cta{display:inline-block;margin-top:6px;background:#fff;color:var(--accent-2);padding:8px 12px;border-radius:10px;font-weight:800;text-decoration:none;box-shadow:0 8px 20px rgba(0,0,0,0.08)}
-.header-cta:hover{transform:translateY(-2px);transition:transform .12s ease}
-.intro{background:linear-gradient(180deg,rgba(255,255,255,0.6),transparent);padding:16px;border-radius:10px;margin:22px 0}
-.intro-inner{display:flex;align-items:center;gap:18px}
-.intro-text{flex:1}
-.intro-figure{width:160px;flex:0 0 160px}
-.intro-figure img{width:100%;height:auto;border-radius:12px;box-shadow:0 12px 30px rgba(0,0,0,0.14);border:4px solid rgba(255,255,255,0.6)}
-.combos{display:grid;gap:20px}
-.combo{background:linear-gradient(180deg,#fff, #fff);padding:18px;border-radius:12px;box-shadow:0 12px 34px rgba(17,17,17,0.08);border-left:6px solid var(--accent);}
-.combo h2{margin:0 0 10px;color:var(--accent-2);font-size:1.18rem}
-.combo h2 small{display:block;font-size:0.7rem;color:var(--muted);margin-top:6px}
-.grid{display:flex;gap:20px;align-items:flex-start}
-.details{flex:1}
-.details ul{padding-left:20px;margin:8px 0 0;color:var(--muted);line-height:1.5}
-.details li{margin:10px 0}
-.price-card{width:260px;background:linear-gradient(180deg,#fff, #fff);padding:16px;border-radius:10px;border:1px solid rgba(0,0,0,0.05);text-align:center}
-.price{font-size:1.6rem;color:var(--dark);font-weight:800;margin-bottom:8px}
-.price-card h4{margin:10px 0 8px;color:var(--accent)}
-.price-card ul{list-style:none;padding:0;margin:0;color:var(--muted)}
-.price-card li{margin:6px 0}
-.contact{margin:26px 0;padding:18px;border-radius:10px;background:linear-gradient(90deg,rgba(255,255,255,0.8),transparent);text-align:center}
-.contact-note{color:var(--muted);font-weight:700}
-.site-footer{padding:18px 0;text-align:center;color:var(--muted);font-size:0.95rem}
+    <main class="container">
+      <section class="intro">
+        <div class="intro-inner">
+          <div class="intro-text">
+            <p>
+              Escolha o combo ideal para o seu evento. Atendemos aniversário,
+              casamento e formatura com personagens animados, cobertura fotográfica
+              e opções de impressão.
+            </p>
+          </div>
+          <div class="intro-figure">
+            <img src="img/personagens.png" alt="Homem Aranha - Locomotiva" />
+          </div>
+        </div>
+      </section>
 
-.partner{background:transparent;padding:18px 0}
-.partner-inner{display:flex;align-items:center;justify-content:space-between;gap:12px}
-.partner-text p{margin:0;color:var(--muted);font-weight:600}
-.partner-logo img{height:54px;display:block}
+      <section class="combos">
+        <article class="combo">
+          <h2>COMBO 1 — 1 PERSONAGEM</h2>
+          <form class="hire-form" method="post" action="hire.php">
+            <input type="hidden" name="combo" value="Combo 1 - 1 Personagem">
+            <input type="hidden" name="max" value="1">
+            <div class="grid">
+              <div class="details">
+                <h3>O que inclui</h3>
+                <ul>
+                  <li>ANIMAÇÃO E DANÇA — <strong>1 hora</strong></li>
+                  <li>ANIVERSÁRIO • CASAMENTO • FORMATURA</li>
+                  <li><em>Dança dos Personagens, interação com crianças, adultos e os demais no evento</em></li>
+                  <li><em>1 hora de cobertura fotográfica</em></li>
+                  <li><em>Edição básica de fotos</em></li>
+                  <li><em>Entrega digital das fotos</em></li>
+                  <li><em>10 fotos impressas 10x15 cm</em></li>
+                </ul>
+                <div class="mv-badge">
+                  <a href="https://www.instagram.com/mobilevision4?igsh=YnkxdjQ5emczZnFw" target="_blank" rel="noopener">
+                    <img src="img/mobile.png" alt="Mobile Vision" />
+                  </a>
+                  <span>Fotos produzidas pela <a href="https://www.instagram.com/mobilevision4?igsh=YnkxdjQ5emczZnFw" target="_blank" rel="noopener"><strong>Mobile Vision</strong></a></span>
+                </div>
+              </div>
+              <aside class="price-card">
+                <div class="price">R$ <span class="price-value">700</span></div>
+                <input type="hidden" name="price" value="700">
+                <input type="hidden" name="no_photo" value="0">
+                <h4>PERSONAGENS DISPONÍVEIS (marque 1)</h4>
+                <div class="chars">
+                  <label><input type="radio" name="characters[]" value="MARIO"> MARIO</label>
+                  <label><input type="radio" name="characters[]" value="LUIGI"> LUIGI</label>
+                  <label><input type="radio" name="characters[]" value="MASCARA"> MASCARA</label>
+                  <label><input type="radio" name="characters[]" value="HOMEM ARANHA"> HOMEM ARANHA</label>
+                </div>
+                <div class="toggle-row">
+                  <button type="button" class="btn-no-photo with-photo" data-discount="400" aria-pressed="false">Com foto</button>
+                  <div class="photo-note"><small>Se não quiser fotos, toque no botão à esquerda para remover a fotografia e aplicar desconto.</small></div>
+                </div>
+                <button type="submit" class="btn-hire">Contratar via WhatsApp</button>
+              </aside>
+            </div>
+          </form>
+        </article>
 
-/* Responsivo */
-@media (max-width:780px){
-  .header-inner{flex-direction:row;gap:12px;align-items:center}
-  .container{padding:14px}
-  .grid{flex-direction:column}
-  .price-card{width:100%}
-  .logo{width:64px}
-  .partner-inner{flex-direction:column;align-items:center;text-align:center}
-  .partner-logo img{height:48px}
-  .intro-inner{flex-direction:column}
-  .intro-figure{width:80%;max-width:320px}
-}
+        <article class="combo">
+          <h2>COMBO 2 — 2 PERSONAGENS</h2>
+          <form class="hire-form" method="post" action="hire.php">
+            <input type="hidden" name="combo" value="Combo 2 - 2 Personagens">
+            <input type="hidden" name="max" value="2">
+            <div class="grid">
+              <div class="details">
+                <h3>O que inclui</h3>
+                <ul>
+                  <li>ANIMAÇÃO E DANÇA — <strong>1 hora</strong></li>
+                  <li>ANIVERSÁRIO • CASAMENTO • FORMATURA</li>
+                  <li><em>Dança dos Personagens, interação com crianças, adultos e os demais no evento</em></li>
+                  <li><em>1 hora de cobertura fotográfica</em></li>
+                  <li><em>Edição básica de fotos</em></li>
+                  <li><em>Entrega digital das fotos</em></li>
+                  <li><em>10 fotos impressas 10x15 cm</em></li>
+                </ul>
+                <div class="mv-badge">
+                  <a href="https://www.instagram.com/mobilevision4?igsh=YnkxdjQ5emczZnFw" target="_blank" rel="noopener">
+                    <img src="img/mobile.png" alt="Mobile Vision" />
+                  </a>
+                  <span>Fotos produzidas pela <a href="https://www.instagram.com/mobilevision4?igsh=YnkxdjQ5emczZnFw" target="_blank" rel="noopener"><strong>Mobile Vision</strong></a></span>
+                </div>
+              </div>
+              <aside class="price-card">
+                <div class="price">R$ <span class="price-value">1100</span></div>
+                <input type="hidden" name="price" value="1100">
+                <input type="hidden" name="no_photo" value="0">
+                <h4>PERSONAGENS DISPONÍVEIS (marque 2)</h4>
+                <div class="chars">
+                  <label><input type="checkbox" name="characters[]" value="MARIO"> MARIO</label>
+                  <label><input type="checkbox" name="characters[]" value="LUIGI"> LUIGI</label>
+                  <label><input type="checkbox" name="characters[]" value="MASCARA"> MASCARA</label>
+                  <label><input type="checkbox" name="characters[]" value="HOMEM ARANHA"> HOMEM ARANHA</label>
+                </div>
+                <div class="toggle-row">
+                  <button type="button" class="btn-no-photo with-photo" data-discount="400" aria-pressed="false">Com foto</button>
+                  <div class="photo-note"><small>Se não quiser fotos, toque no botão à esquerda para remover a fotografia e aplicar desconto.</small></div>
+                </div>
+                <button type="submit" class="btn-hire">Contratar via WhatsApp</button>
+              </aside>
+            </div>
+          </form>
+        </article>
+        
+          <article class="combo">
+            <h2>COMBO 3 — 3 PERSONAGENS</h2>
+            <form class="hire-form" method="post" action="hire.php">
+              <input type="hidden" name="combo" value="Combo 3 - 3 Personagens">
+              <input type="hidden" name="max" value="3">
+              <div class="grid">
+                <div class="details">
+                  <h3>O que inclui</h3>
+                  <ul>
+                    <li>ANIMAÇÃO E DANÇA — <strong>1 hora</strong></li>
+                    <li>ANIVERSÁRIO • CASAMENTO • FORMATURA</li>
+                    <li><em>Dança dos Personagens, interação com crianças, adultos e os demais no evento</em></li>
+                    <li><em>1 hora de cobertura fotográfica</em></li>
+                    <li><em>Edição básica de fotos</em></li>
+                    <li><em>Entrega digital das fotos</em></li>
+                    <li><em>10 fotos impressas 10x15 cm</em></li>
+                  </ul>
+                    <div class="mv-badge">
+                      <a href="https://www.instagram.com/mobilevision4?igsh=YnkxdjQ5emczZnFw" target="_blank" rel="noopener">
+                        <img src="img/mobile.png" alt="Mobile Vision" />
+                      </a>
+                      <span>Fotos produzidas pela <a href="https://www.instagram.com/mobilevision4?igsh=YnkxdjQ5emczZnFw" target="_blank" rel="noopener"><strong>Mobile Vision</strong></a></span>
+                    </div>
+                </div>
+                <aside class="price-card">
+                  <div class="price">R$ <span class="price-value">1500</span></div>
+                  <input type="hidden" name="price" value="1500">
+                  <input type="hidden" name="no_photo" value="0">
+                  <h4>PERSONAGENS DISPONÍVEIS (marque 3)</h4>
+                  <div class="chars">
+                    <label><input type="checkbox" name="characters[]" value="MARIO"> MARIO</label>
+                    <label><input type="checkbox" name="characters[]" value="LUIGI"> LUIGI</label>
+                    <label><input type="checkbox" name="characters[]" value="MASCARA"> MASCARA</label>
+                    <label><input type="checkbox" name="characters[]" value="HOMEM ARANHA"> HOMEM ARANHA</label>
+                  </div>
+                  <div class="toggle-row">
+                    <button type="button" class="btn-no-photo with-photo" data-discount="400" aria-pressed="false">Com foto</button>
+                    <div class="photo-note"><small>Se não quiser fotos, toque no botão à esquerda para remover a fotografia e aplicar desconto.</small></div>
+                  </div>
+                  <button type="submit" class="btn-hire">Contratar via WhatsApp</button>
+                </aside>
+              </div>
+            </form>
+          </article>
 
-@media (max-width:420px){
-  .top-logo{width:36px}
-  .logo{width:48px}
-  .title-group h1{font-size:1.1rem}
-}
+          <article class="combo">
+            <h2>COMBO 4 — 4 PERSONAGENS</h2>
+            <form class="hire-form" method="post" action="hire.php">
+              <input type="hidden" name="combo" value="Combo 4 - 4 Personagens">
+              <input type="hidden" name="max" value="4">
+              <div class="grid">
+                <div class="details">
+                  <h3>O que inclui</h3>
+                  <ul>
+                    <li>ANIMAÇÃO E DANÇA — <strong>1 hora</strong></li>
+                    <li>ANIVERSÁRIO • CASAMENTO • FORMATURA</li>
+                    <li><em>Dança dos Personagens, interação com crianças, adultos e os demais no evento</em></li>
+                    <li><em>1 hora de cobertura fotográfica</em></li>
+                    <li><em>Edição básica de fotos</em></li>
+                    <li><em>Entrega digital das fotos</em></li>
+                    <li><em>10 fotos impressas 10x15 cm</em></li>
+                  </ul>
+                  <div class="mv-badge">
+                    <a href="https://www.instagram.com/mobilevision4?igsh=YnkxdjQ5emczZnFw" target="_blank" rel="noopener">
+                      <img src="img/mobile.png" alt="Mobile Vision" />
+                    </a>
+                    <span>Fotos produzidas pela <a href="https://www.instagram.com/mobilevision4?igsh=YnkxdjQ5emczZnFw" target="_blank" rel="noopener"><strong>Mobile Vision</strong></a></span>
+                  </div>
+                </div>
+                <aside class="price-card">
+                  <div class="price">R$ <span class="price-value">1700</span></div>
+                  <input type="hidden" name="price" value="1700">
+                  <input type="hidden" name="no_photo" value="0">
+                  <h4>PERSONAGENS DISPONÍVEIS (marque 4)</h4>
+                  <div class="chars">
+                    <label><input type="checkbox" name="characters[]" value="MARIO"> MARIO</label>
+                    <label><input type="checkbox" name="characters[]" value="LUIGI"> LUIGI</label>
+                    <label><input type="checkbox" name="characters[]" value="MASCARA"> MASCARA</label>
+                    <label><input type="checkbox" name="characters[]" value="HOMEM ARANHA"> HOMEM ARANHA</label>
+                  </div>
+                  <div class="toggle-row">
+                    <button type="button" class="btn-no-photo with-photo" data-discount="400" aria-pressed="false">Com foto</button>
+                    <div class="photo-note"><small>Se não quiser fotos, toque no botão à esquerda para remover a fotografia e aplicar desconto.</small></div>
+                  </div>
+                  <button type="submit" class="btn-hire">Contratar via WhatsApp</button>
+                </aside>
+              </div>
+            </form>
+          </article>
+      </section>
 
-/* Mobile Vision badge */
-.mv-badge{display:flex;align-items:center;gap:10px;justify-content:center;margin-top:12px}
-.mv-badge img{height:34px}
-.mv-badge span{font-size:0.95rem;color:var(--muted)}
+      <section class="contact">
+        <h3>Reserve agora</h3>
+        <p>Entre em contato para verificar disponibilidade e fechar sua data.</p>
+        <p class="contact-note">Telefone/WhatsApp: (34) 9 8887-0260</p>
+      </section>
+    </main>
 
-/* Footer destaque da Mobile Vision */
-.partner{background:linear-gradient(90deg, rgba(211,84,0,0.06), transparent);padding:20px 0}
-.partner-logo img{height:72px}
-.partner-text p{font-weight:700;color:var(--accent-2)}
+    <section class="partner">
+      <div class="container partner-inner">
+        <div class="partner-text">
+          <p>Fotografia de todos os combos pela Parceira <strong>Mobile Vision</strong></p>
+        </div>
+        <div class="partner-logo">
+          <img src="img/mobile.png" alt="Mobile Vision" />
+        </div>
+      </div>
+    </section>
 
-/* Formulários e botões */
-.hire-form{margin:0}
-.chars{display:flex;flex-direction:column;gap:8px;margin-top:8px}
-.chars label{display:flex;align-items:center;gap:8px;background:rgba(0,0,0,0.02);padding:8px;border-radius:8px}
-.btn-hire{margin-top:12px;display:inline-block;background:var(--accent-2);color:#fff;border:none;padding:12px 14px;border-radius:10px;cursor:pointer;font-weight:800;box-shadow:0 6px 20px rgba(192,57,43,0.14)}
-.btn-hire:hover{transform:translateY(-1px);transition:transform .12s ease}
-.price-card{width:260px;background:linear-gradient(180deg,#fff, #fff);padding:16px;border-radius:10px;border:1px solid rgba(0,0,0,0.05);text-align:center;position:relative}
-.btn-no-photo{margin-top:10px;display:inline-flex;align-items:center;gap:8px;background:#111;color:#fff;border:1px solid rgba(255,255,255,0.06);padding:10px 12px;border-radius:999px;cursor:pointer;font-weight:800;position:relative;z-index:3;transition:box-shadow .12s ease, background .12s ease, color .12s ease; -webkit-tap-highlight-color: transparent; touch-action: manipulation; -webkit-user-select: none; user-select: none}
-.btn-no-photo.with-photo{background:#1abc9c;color:#fff;border-color:transparent;box-shadow:0 8px 20px rgba(26,188,156,0.14)}
-.btn-no-photo.no-photo{background:#e74c3c;color:#fff;border-color:transparent;box-shadow:0 8px 20px rgba(231,76,60,0.14)}
-.btn-no-photo:hover{opacity:0.98}
-.btn-no-photo:focus{outline:none;box-shadow:0 10px 28px rgba(0,0,0,0.18)}
-.btn-no-photo:active{opacity:0.98}
+    <footer class="site-footer">
+      <div class="container">
+        <p>© Locomotiva da Alegria — Todos os direitos reservados</p>
+      </div>
+    </footer>
+    
+    <script>
+      // Validação de seleção e lógica do botão 'Sem fotografia'
+      document.querySelectorAll('.hire-form').forEach(function(form){
+        const max = parseInt(form.querySelector('input[name="max"]').value, 10);
+        const priceInput = form.querySelector('input[name="price"]');
+        const noPhotoInput = form.querySelector('input[name="no_photo"]');
+        const priceValueElem = form.querySelector('.price-value');
+        const noPhotoBtn = form.querySelector('.btn-no-photo');
 
-/* Observação ao lado do toggle */
-.photo-note{display:block;margin-top:10px;color:rgba(0,0,0,0.6);font-size:0.92rem}
-.photo-note small{color:var(--muted);font-size:0.88rem}
+        if(noPhotoBtn){
+          // Inicializa estado do toggle (exibir como 'Com foto' por padrão)
+          const discount = parseFloat(noPhotoBtn.getAttribute('data-discount') || '0');
+          const original = parseFloat(priceValueElem.getAttribute('data-original') || priceInput.value || '0');
+          function setToWithPhoto(){
+            priceInput.value = original;
+            priceValueElem.textContent = original.toLocaleString('pt-BR');
+            noPhotoInput.value = '0';
+            noPhotoBtn.classList.remove('no-photo');
+            noPhotoBtn.classList.add('with-photo');
+            noPhotoBtn.textContent = 'Com foto';
+            noPhotoBtn.setAttribute('aria-pressed', 'false');
+          }
+          function setToNoPhoto(){
+            const newPrice = Math.max(0, original - discount);
+            priceInput.value = newPrice;
+            priceValueElem.textContent = newPrice.toLocaleString('pt-BR');
+            noPhotoInput.value = '1';
+            noPhotoBtn.classList.add('no-photo');
+            noPhotoBtn.classList.remove('with-photo');
+            noPhotoBtn.textContent = 'Sem foto';
+            // Exibe o valor do desconto em pequena nota via atributo title (a nota já aparece ao lado)
+            noPhotoBtn.setAttribute('title', '-R$' + discount);
+            noPhotoBtn.setAttribute('aria-pressed', 'true');
+          }
 
-/* Melhorias mobile */
-@media (max-width:620px){
-  .container{padding:12px}
-  .logo{width:54px}
-  .intro-figure{width:70%;max-width:220px;margin:auto}
-  .grid{flex-direction:column}
-  .price-card{width:100%}
-  .intro-text p{font-size:0.95rem}
-  .combo h2{font-size:1.05rem}
-}
+          // inicial
+          if(noPhotoInput.value === '1') setToNoPhoto(); else setToWithPhoto();
 
-/* Mensagens de erro simples */
-.error{color:#b00020;padding:8px 0}
+          noPhotoBtn.addEventListener('click', function(){
+            if(noPhotoInput.value === '1') setToWithPhoto(); else setToNoPhoto();
+            // Remove foco após interação para evitar comportamento estranho em alguns navegadores mobile
+            setTimeout(function(){ try{ noPhotoBtn.blur(); }catch(e){} }, 50);
+          });
+        }
 
+        // Store original price
+        const orig = parseFloat(priceInput.value || '0');
+        if(priceValueElem) priceValueElem.setAttribute('data-original', String(orig));
 
-@media (max-width:420px){
-  .title-group h1{font-size:1.2rem}
-  .subtitle{font-size:0.85rem}
-}
+        // Limitar seleção: se inputs forem checkboxes, limitar ao max;
+        // se forem radios (max == 1), não é necessário desabilitar
+        const inputs = Array.from(form.querySelectorAll('input[name="characters[]"]'));
+        const isRadio = inputs.length > 0 && inputs[0].type === 'radio';
+        if(!isRadio){
+          inputs.forEach(function(cb){
+            cb.addEventListener('change', function(){
+              const checked = form.querySelectorAll('input[name="characters[]"]:checked').length;
+              if(checked >= max){
+                // desabilita os outros não checados
+                inputs.forEach(function(c){ if(!c.checked) c.disabled = true; });
+              } else {
+                inputs.forEach(function(c){ c.disabled = false; });
+              }
+            });
+          });
+        }
+
+        form.addEventListener('submit', function(e){
+          e.preventDefault();
+          const checked = form.querySelectorAll('input[name="characters[]"]:checked').length;
+          if(checked === 0){
+            alert('Selecione pelo menos 1 personagem.');
+            return;
+          }
+          if(checked > max){
+            alert('Você selecionou mais personagens do que o permitido para este combo. Máximo: ' + max);
+            return;
+          }
+
+          // Monta dados para mensagem
+          let chars = [];
+          form.querySelectorAll('input[name="characters[]"]:checked').forEach(function(c){ chars.push(c.value); });
+          // radios: se não retornar em checked, buscar value do radio selecionado
+          if(chars.length === 0){
+            const radio = form.querySelector('input[name="characters[]"]:checked');
+            if(radio) chars.push(radio.value);
+          }
+          const comboName = form.querySelector('input[name="combo"]').value;
+          const priceVal = form.querySelector('input[name="price"]').value;
+          const noPhotoVal = form.querySelector('input[name="no_photo"]').value === '1';
+          const photoNote = noPhotoVal ? 'Sem foto (desconto aplicado)' : 'Com foto (fotografia inclusa pela Mobile Vision)';
+
+          const finalPrice = parseFloat(priceVal).toFixed(2).replace('.', ',');
+          // Mensagem mais profissional e legível
+          const messageLines = [
+            '*📩 *Pedido de Contratação — Locomotiva da Alegria*',
+            '',
+            '*Combo:* ' + comboName,
+            '*Personagens:* ' + (chars.length ? chars.join(', ') : '-'),
+            '*Opção:* ' + photoNote,
+            '*Valor:* R$ ' + finalPrice,
+            '',
+            '📸 Fotos produzidas pela Mobile Vision',
+            '',
+            'Por favor, *responda* com: (Data do evento e Local. Obrigado!)'
+          ];
+
+          const message = encodeURIComponent(messageLines.join('\n'));
+
+          // Número final definido
+          const waNumber = '5534988870260';
+          const waUrl = 'https://wa.me/' + waNumber + '?text=' + message;
+
+          // Tenta abrir no WhatsApp do cliente primeiro
+          window.open(waUrl, '_blank');
+
+          // Também submeter para o servidor (opcional). Se preferir evitar servidor, comente a linha abaixo.
+          form.submit();
+        });
+      });
+    
+    </script>
+  </body>
+</html>
